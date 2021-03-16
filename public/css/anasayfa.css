@@ -70,19 +70,4 @@ background: #001e50;
     transform: scale(1.3);
    
 }
-.cdhover:hover
-{
-  font-size: 0;
 
-}
-.cdhover:hover:after
-{
-    content: attr(data-hover);
-    font-size: x-large;
-
-}
-.kam{
-  width: 651px;
-  height: 575px;
-  left: auto;
-}

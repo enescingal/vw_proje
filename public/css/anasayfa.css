@@ -84,10 +84,16 @@ background: #001e50;
 {
   margin:150px auto;
   border: none;
-  width: 24rem;
+  width: 20rem;
+}
+.ad1{
+  margin-top: 25px;
 }
 .ab
 {
-  margin: 25px 100px;
+  margin: 25px 60px;
  
+}
+.ag{
+  margin-left: 930px;
 }

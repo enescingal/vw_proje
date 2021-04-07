@@ -1,3 +1,8 @@
+<?php
+include("vtayar.php");
+
+?>
+
 <!doctype html>
 <html lang="tr">
 
@@ -7,14 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
   <link rel="stylesheet" href="../Public/css/anasayfa.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
   <title>Volkswagen</title>
 
@@ -46,7 +51,7 @@
             <div class="text-white text-small ">
               <ul class="navbar-nav list-group list-group-horizontal justify-content-end ">
                 <li class="nav-item ">
-                  <a class="nav-link text-white" href="iletisimformu.html">Bize Ulaşın</a>
+                  <a class="nav-link text-white" href="iletisimformu.php">Bize Ulaşın</a>
                 </li>
               </ul>
             </div>
@@ -63,8 +68,7 @@
           <a class="navbar-brand" style="padding-left: 16px;" href="anasayfa.html">
             <img src="../Public/img/vwlogo.png" style="width: 48px;"></a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -113,64 +117,89 @@
   <section>
 
     <!--main-->
+   
 
 
 
-    
     <div class="container col-12">
       <h4 class="text-center" style="margin:80px;"><strong>Ön Sipariş Fırsatları</strong> </h4>
+      <form action="kaydet.php" class="form-control"   method="POST" style="border: none;">
+        <div class="col-12 card" style="padding: 16px 160px;">
+          <h4 class="text-center p-4">Hemen Şipariş Verin</h4>
+          <div class="form-floating mb-3">
 
-      <div class="col-12 card" style="padding: 16px 160px;">
-        <h4 class="text-center p-4">Hemen Şipariş Verin</h4>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="text">
-          <label for="floatingInput">Ad Soyad</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="text">
-          <label for="floatingInput">Telefon</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Mail</label>
-        </div>
+            <input type="text"  name="ad" class="form-control" id="floatingInput" placeholder="text">
+            <label for="floatingInput">Ad Soyad</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text"  name="tel" class="form-control" id="floatingInput" placeholder="text">
+            <label for="floatingInput">Telefon</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email"  name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Mail</label>
+          </div>
 
 
-        <select class="form-select" aria-label="Default select example" style="margin-bottom :16px;">
-          <option selected>Şehir Seçiniz</option>
-          <option value="1">İstanbul </option>
-          <option value="2">Ankara</option>
-          <option value="3">Bursa</option>
-          <option value="1">Sakarya </option>
-          <option value="2">Balıkesir</option>
-          <option value="3">Kocaeli</option>
-        </select>
-        <select class="form-select" aria-label="Default select example" style="margin-bottom :16px;">
-          <option selected>Araç Modelini Seçiniz</option>
-          <option value="1">Golf</option>
-          <option value="2">T-rog</option>
-          <option value="3">Tiguan</option>
-          <option value="1">Polo</option>
-          <option value="2">Passat</option>
-          <option value="3">Touareg</option>
-        </select>
-        <select class="form-select" aria-label="Default select example" style="margin-bottom :16px;">
-          <option selected>Donanım Seviyesi Seçiniz</option>
-          <option value="1">Impression ₺223.500</option>
-          <option value="2">Life ₺314.000</option>
-          <option value="3">Style ₺346.000</option>
-          <option value="4">R-Line ₺365.000</option>
-      
-        </select>
-       
-        <button type="button" class="btn btn-outline-primary button">Siparişi Tamamla</button>
-      </div>
+          <select class="form-select"  name="sehir" aria-label="Default select example" style="margin-bottom :16px;">
+            <option selected>Şehir Seçiniz</option>
+            <option value="İstanbul">İstanbul </option>
+            <option value="Ankara">Ankara</option>
+            <option value="Bursa">Bursa</option>
+            <option value="Sakarya">Sakarya </option>
+            <option value="Balıkesir">Balıkesir</option>
+            <option value="Kocaeli">Kocaeli</option>
+          </select>
+
+          <select class="form-select"  name="model" aria-label="Default select example" style="margin-bottom :16px;">
+            <option selected>Araç Modelini Seçiniz</option>
+            <option value="Golf">Golf</option>
+            <option value="T-rog">T-rog</option>
+            <option value="Tiguan">Tiguan</option>
+            <option value="Polo">Polo</option>
+            <option value="Passat">Passat</option>
+            <option value="Touareg">Touareg</option>
+          </select>
+
+
+          <select class="form-select" name="paket" aria-label="Default select example" style="margin-bottom :16px;">
+            <option selected>Donanım Seviyesi Seçiniz</option>
+
+            <?php
+
+            $cek = $vt->query("select * from paket");
+            $cek->execute();
+
+          
+            
+             
+
+                while ($row = $cek->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+                  <option  value="<?=$row['pkt'] ?>"><?= $row['pkt'] ?></option>
+
+            <?php
+                }
+            ?>
+
+
+
+
+
+          </select>
+
+          <input type="submit" name="btn" class="btn btn-outline-primary button " onsubmit="return false" placeholder="Gönder"></input>
+      </form>
+  
+    </div>
 
     </div>
 
 
 
     </div>
+
+  
   </section>
 
 </body>
@@ -249,8 +278,7 @@
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--

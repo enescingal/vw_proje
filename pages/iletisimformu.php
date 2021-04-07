@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="tr">
 
@@ -7,8 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
@@ -34,7 +34,7 @@
             <div class="text-white text-small ">
               <ul class="navbar-nav  list-group-horizontal justify-content-start">
                 <li class="nav-item " style="margin-left:16px;">
-                  <a class="nav-link text-white" href="yeniarac.html">Yeni Araç Al</a>
+                  <a class="nav-link text-white" href="yeniarac.php">Yeni Araç Al</a>
                 </li>
                 <li class="nav-item " style="margin-left:30px;">
                   <a class="nav-link text-white" href="fiyatliste.html">Fiyat Listesi</a>
@@ -46,7 +46,7 @@
             <div class="text-white text-small ">
               <ul class="navbar-nav list-group list-group-horizontal justify-content-end ">
                 <li class="nav-item ">
-                  <a class="nav-link text-white" href="iletisimformu.html">Bize Ulaşın</a>
+                  <a class="nav-link text-white" href="iletisimformu.php">Bize Ulaşın</a>
                 </li>
               </ul>
             </div>
@@ -63,8 +63,7 @@
           <a class="navbar-brand" style="padding-left: 16px;" href="anasayfa.html">
             <img src="../Public/img/vwlogo.png" style="width: 48px;"></a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -113,36 +112,39 @@
   <section>
 
     <!--main-->
+  
 
 
 
     <!-- --------------DAHA FAZLA--------  -->
     <div class="container col-12">
       <h4 class="text-center" style="margin:80px;"><strong>İletişim Formu</strong> </h4>
-
-      <div class="col-12 card" style="padding: 16px 160px;">
-        <h4 class="text-center p-4">Bizimle İletişime Geçin</h4>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="text">
-          <label for="floatingInput">Ad Soyad</label>
+      <form action="kaydet.php" method="POST">
+        <div class="col-12 card" style="padding: 16px 160px;">
+          <h4 class="text-center p-4">Bizimle İletişime Geçin</h4>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="ad" id="floatingInput" placeholder="text">
+            <label for="floatingInput">Ad Soyad</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="tel" id="floatingInput" placeholder="text">
+            <label for="floatingPassword">Telefon</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" name="mail" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Mail</label>
+          </div>
+          <div class="form-floating">
+            <textarea class="form-control" name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px;"></textarea>
+            <label for="floatingTextarea">Mesajınız</label>
+          </div>
+          <input type="submit" name="btn1" class="btn btn-outline-primary button"></input>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="text">
-          <label for="floatingPassword">Telefon</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Mail</label>
-        </div>
-        <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
-            style="margin-bottom: 16px;"></textarea>
-          <label for="floatingTextarea">Mesajınız</label>
-        </div>
-        <button type="button" class="btn btn-outline-primary button">Gönder</button>
-      </div>
-
+      </form>
     </div>
+   
+    
+    
 
 
 
@@ -187,7 +189,7 @@
         <a class="a1 color1" href="iletisim.html">
           <p><small>Bilgi Formu</small></p>
         </a>
-        <a class="a1 color1" href="iletisimformu.html">
+        <a class="a1 color1" href="iletisimformu.php">
           <p><small>İletişim Formu</small> </p>
         </a>
         <a class="a1 color1" href="kampanya.html">
@@ -224,8 +226,7 @@
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--

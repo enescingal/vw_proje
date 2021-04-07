@@ -138,7 +138,13 @@
             <textarea class="form-control" name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px;"></textarea>
             <label for="floatingTextarea">Mesajınız</label>
           </div>
+          <?php
+            if (isset($_GET['success'])) {
+            ?>
+              <div class="alert alert-success">Mesajınız Alındı.</div>
+            <?php } ?>
           <input type="submit" name="btn1" class="btn btn-outline-primary button"></input>
+          
         </div>
       </form>
     </div>

@@ -78,6 +78,11 @@ include("guvenlik.php");
               <div class="accordion-body">
                 <div class="row justify-content-center">
                   <div class="col">
+                    <?php
+                    if (isset($_GET['success'])) {
+                    ?>
+                      <div class="alert alert-success">Başarıyla Silindi.</div>
+                    <?php } ?>
                     <table class="table ">
                       <tr>
                         <td>Id</td>
@@ -87,7 +92,8 @@ include("guvenlik.php");
                         <td>Şehir</td>
                         <td>Model</td>
                         <td>Paket</td>
-                        <td>Düzenle</td>
+                        <td>Düzen</td>
+                        <td>Mail at</td>
 
 
                       </tr>
@@ -106,9 +112,9 @@ include("guvenlik.php");
                           <td><?= $row['sehir'] ?></td>
                           <td><?= $row['model'] ?></td>
                           <td><?= $row['paket'] ?></td>
-                          
-                            <td><a href="../admin/kontrol.php?id=<?php echo $row['id'] ?>&yeniarac=sil"><button type="submit" name="btn" class="btn btn-danger ">Sil</button></a></td>
-                          
+
+                          <td><a href="../admin/kontrol.php?id=<?php echo $row['id'] ?>&yeniarac=sil"><button type="submit" name="btn" class="btn btn-danger ">Sil</button></a></td>
+                          <td><a href="../admin/mail.php?mail=<?php echo $row['mail'] ?>&yeniarac=gonder"><button type="submit" name="bt1" class="btn btn-danger">Mail</button></a></td>
 
 
                         </tr>
@@ -122,7 +128,7 @@ include("guvenlik.php");
               </div>
             </div>
           </div>
-         
+
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -134,6 +140,11 @@ include("guvenlik.php");
               <div class="accordion-body"></div>
               <div class="row justify-content-center">
                 <div class="col">
+                  <?php
+                  if (isset($_GET['success'])) {
+                  ?>
+                    <div class="alert alert-success">Başarıyla Silindi.</div>
+                  <?php } ?>
                   <table class="table ">
                     <tr>
                       <td>Id</td>
@@ -141,7 +152,9 @@ include("guvenlik.php");
                       <td>Tel</td>
                       <td>Mail</td>
                       <td>Mesaj</td>
-                      <td>Düzenle</td>
+                      <td>Düzen</td>
+                      <td>Mail at</td>
+
 
 
 
@@ -159,9 +172,9 @@ include("guvenlik.php");
                         <td><?= $row['tel'] ?></td>
                         <td><?= $row['mail'] ?></td>
                         <td><textarea><?= $row['mesaj'] ?></textarea></td>
-                        
-                          <td><a href="../admin/kontrol.php?id=<?php echo $row['id'] ?>&iletisim=sil"><button type="submit" name="btn" class="btn btn-danger ">Sil</button></a></td>
-                        
+
+                        <td><a href="../admin/kontrol.php?id=<?php echo $row['id'] ?>&iletisim=sil"><button type="submit" name="btn" class="btn btn-danger ">Sil</button></a></td>
+                        <td><a href="../admin/mail.php?mail=<?php echo $row['mail'] ?>&iletisim=gonder"><button type="submit" name="bt1" class="btn btn-danger">Mail</button></a></td>
 
 
                       </tr>
@@ -173,7 +186,7 @@ include("guvenlik.php");
             </div>
 
           </div>
-         
+
         </div>
       </div>
     </div>

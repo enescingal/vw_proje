@@ -9,7 +9,10 @@ if ($_GET['yeniarac'] == "sil") {
     'id' => $_GET['id']
   ));
   if ($kontrol) {
-    header("location:../admin/adminpanel.php");
+    header("location:../admin/admin.php?success=1");
+  }
+  else{
+    header("location:../admin/admin.php?danger=1");
   }
 }
 
@@ -25,7 +28,10 @@ if ($_GET['iletisim'] == "sil") {
     'id' => $_GET['id']
   ));
   if ($kontrol) {
-    header("location:../admin/admin.php");
+    header("location:../admin/admin.php?success=1");
+  }
+  else{
+    header("location:../admin/admin.php?danger=1");
   }
 }
 
@@ -43,7 +49,7 @@ if (isset($_POST['grs'])) {
         header("location:admin.php");
         exit;
    }else{
-    header("location:login.php");
+    header("location:login.php?danger=1");
     exit;
    }
   

@@ -117,31 +117,32 @@ include("vtayar.php");
   <section>
 
     <!--main-->
-   
+
 
 
 
     <div class="container col-12">
       <h4 class="text-center" style="margin:80px;"><strong>Ön Sipariş Fırsatları</strong> </h4>
-      <form action="kaydet.php" class="form-control"   method="POST" style="border: none;">
+      <form action="kaydet.php" class="form-control" method="POST" style="border: none;">
+
         <div class="col-12 card" style="padding: 16px 160px;">
           <h4 class="text-center p-4">Hemen Şipariş Verin</h4>
           <div class="form-floating mb-3">
-
-            <input type="text"  name="ad" class="form-control" id="floatingInput" placeholder="text">
+          
+            <input type="text" name="ad" class="form-control" id="floatingInput" placeholder="text">
             <label for="floatingInput">Ad Soyad</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text"  name="tel" class="form-control" id="floatingInput" placeholder="text">
+            <input type="text" name="tel" class="form-control" id="floatingInput" placeholder="text">
             <label for="floatingInput">Telefon</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email"  name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Mail</label>
           </div>
 
 
-          <select class="form-select"  name="sehir" aria-label="Default select example" style="margin-bottom :16px;">
+          <select class="form-select" name="sehir" aria-label="Default select example" style="margin-bottom :16px;">
             <option selected>Şehir Seçiniz</option>
             <option value="İstanbul">İstanbul </option>
             <option value="Ankara">Ankara</option>
@@ -151,7 +152,7 @@ include("vtayar.php");
             <option value="Kocaeli">Kocaeli</option>
           </select>
 
-          <select class="form-select"  name="model" aria-label="Default select example" style="margin-bottom :16px;">
+          <select class="form-select" name="model" aria-label="Default select example" style="margin-bottom :16px;">
             <option selected>Araç Modelini Seçiniz</option>
             <option value="Golf">Golf</option>
             <option value="T-rog">T-rog</option>
@@ -170,16 +171,16 @@ include("vtayar.php");
             $cek = $vt->query("select * from paket");
             $cek->execute();
 
-          
-            
-             
 
-                while ($row = $cek->fetch(PDO::FETCH_ASSOC)) {
+
+
+
+            while ($row = $cek->fetch(PDO::FETCH_ASSOC)) {
             ?>
-                  <option  value="<?=$row['pkt'] ?>"><?= $row['pkt'] ?></option>
+              <option value="<?= $row['pkt'] ?>"><?= $row['pkt'] ?></option>
 
             <?php
-                }
+            }
             ?>
 
 
@@ -187,19 +188,25 @@ include("vtayar.php");
 
 
           </select>
+          <?php
+            if (isset($_GET['success'])) {
+            ?>
+              <div class="alert alert-success">Siparişiniz Alındı.</div>
+            <?php } ?>
 
           <input type="submit" name="btn" class="btn btn-outline-primary button " onsubmit="return false" placeholder="Gönder"></input>
+         
       </form>
-  
-    </div>
 
     </div>
 
+    </div>
+
 
 
     </div>
 
-  
+
   </section>
 
 </body>

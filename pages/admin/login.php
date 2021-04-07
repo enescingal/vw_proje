@@ -31,19 +31,25 @@
         <p class="card-text"></p>
         <form action="kontrol.php" method="POST">
           <div class="form-floating mb-3 ">
-            <input type="text" name="kul" class="form-control" id="floatingInput" placeholder="text">
+            <input type="text" name="kul" class="form-control" required="" id="floatingInput" placeholder="text">
             <label for="floatingInput">Kullanıcı Adı</label>
           </div>
           <div class="form-floating">
-            <input type="password" name="pass" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" name="pass" class="form-control" required="" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Şifre</label>
           </div>
 
           <button type="submit" name="grs" class="btn  ab color1 button " value="Log in">Giriş</button>
+          <?php
+            if (isset($_GET['danger'])) {
+            ?>
+              <div class="alert alert-danger">Kullanıcı adı veya Şifre yanlış</div>
+            <?php } ?>
         </form>
       </div>
      
     </div>
+    
 
   </section>
 </body>

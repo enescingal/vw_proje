@@ -1,3 +1,7 @@
+<?php
+include("vtayar.php");
+
+?>
 
 <!doctype html>
 <html lang="tr">
@@ -119,23 +123,23 @@
     <!-- --------------DAHA FAZLA--------  -->
     <div class="container col-12">
       <h4 class="text-center" style="margin:80px;"><strong>İletişim Formu</strong> </h4>
-      <form action="kaydet.php" method="POST">
+      <form method="POST" id="deger1" onsubmit="return false;">
         <div class="col-12 card" style="padding: 16px 160px;">
           <h4 class="text-center p-4">Bizimle İletişime Geçin</h4>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="ad" id="floatingInput" placeholder="text">
+            <input type="text" required="" class="form-control" name="ad" id="floatingInput" placeholder="text">
             <label for="floatingInput">Ad Soyad</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="tel" id="floatingInput" placeholder="text">
+            <input type="text" required="" class="form-control" name="tel" id="floatingInput" placeholder="text">
             <label for="floatingPassword">Telefon</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" name="mail" id="floatingInput" placeholder="name@example.com">
+            <input type="email" required="" class="form-control" name="mail" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Mail</label>
           </div>
           <div class="form-floating">
-            <textarea class="form-control" name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px;"></textarea>
+            <textarea class="form-control"  required="" name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px;"></textarea>
             <label for="floatingTextarea">Mesajınız</label>
           </div>
           <?php
@@ -143,7 +147,7 @@
             ?>
               <div class="alert alert-success">Mesajınız Alındı.</div>
             <?php } ?>
-          <input type="submit" name="btn1" class="btn btn-outline-primary button"></input>
+          <button type="submit" name="btn1" onclick="kaydet()" class="btn btn-outline-primary button">Gönder</button>
           
         </div>
       </form>
@@ -158,6 +162,40 @@
   </section>
 
 </body>
+<script type="text/javascript">
+  function kaydet() {
+var deger1=$("#deger1").serialize();
+
+    $.ajax({
+      url: "kaydet1.php",
+      type: "POST",
+      data: deger1,
+      success: function(data) {
+        if($.trim(data)=="bos"){
+          alert("Ad Soyad boş bırakılamaz!");
+
+        }
+        else if($.trim(data)=="bos1"){
+          alert("Telefon boş bırakılamaz!");
+        }
+        else if($.trim(data)=="bos2"){
+          alert("Mail boş bırakılamaz!");
+        }
+        else if($.trim(data)=="bos3"){
+          alert("Mesaj boş bırakılamaz!");
+        }
+        else if($.trim(data)=="kayit"){
+          alert("Mesajınız alındı.");
+        }
+        else if($.trim(data)=="hata"){
+          alert("Mesajınız alınamadı.Daha sonra tekrar deneyin!");
+        }
+
+      }
+    });
+  }
+</script>
+
 
 
 
@@ -233,7 +271,7 @@
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>

@@ -25,7 +25,7 @@
 
   <section>
     <div class="card " style="border:none;margin: 150px auto; width: 20rem;  ">
-      <img src="../../public/img/vwlogo.png" class="card-img-top" alt="...">
+      <a href="../anasayfa.html"><img src="../../public/img/vwlogo.png" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <h5 class="card-title ad1">Admin Giriş</h5>
         <p class="card-text"></p>

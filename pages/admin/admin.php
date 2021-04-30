@@ -92,8 +92,8 @@ include("guvenlik.php");
                         <td>Şehir</td>
                         <td>Model</td>
                         <td>Paket</td>
-                        <td>Düzen</td>
-                        <td>Mail at</td>
+                        <td>   </td>
+                        <td>   </td>
 
 
                       </tr>
@@ -152,8 +152,8 @@ include("guvenlik.php");
                       <td>Tel</td>
                       <td>Mail</td>
                       <td>Mesaj</td>
-                      <td>Düzen</td>
-                      <td>Mail at</td>
+                      <td>   </td>
+                      <td>   </td>
 
 
 

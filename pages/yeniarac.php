@@ -123,21 +123,22 @@ include("vtayar.php");
 
     <div class="container col-12">
       <h4 class="text-center" style="margin:80px;"><strong>Ön Sipariş Fırsatları</strong> </h4>
-      <form action="kaydet.php" class="form-control" method="POST" style="border: none;">
 
-        <div class="col-12 card" style="padding: 16px 160px;">
+
+      <div class="col-12 card" style="padding: 16px 160px;">
+        <form method="POST" id="deger1" onsubmit="return false;">
           <h4 class="text-center p-4">Hemen Şipariş Verin</h4>
           <div class="form-floating mb-3">
-          
-            <input type="text" name="ad" class="form-control" id="floatingInput" placeholder="text">
+
+            <input type="text" name="ad" required="" class="form-control " id="floatingInput" placeholder="text">
             <label for="floatingInput">Ad Soyad</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" name="tel" class="form-control" id="floatingInput" placeholder="text">
+            <input type="text" name="tel" required="" class="form-control" id="floatingInput" placeholder="text">
             <label for="floatingInput">Telefon</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="mail" required="" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Mail</label>
           </div>
 
@@ -188,17 +189,12 @@ include("vtayar.php");
 
 
           </select>
-          <?php
-            if (isset($_GET['success'])) {
-            ?>
-              <div class="alert alert-success">Siparişiniz Alındı.</div>
-            <?php } ?>
-
-          <input type="submit" name="btn" class="btn btn-outline-primary button " onsubmit="return false" placeholder="Gönder"></input>
          
-      </form>
+          <button type="submit" name="btn" style="margin-left:400px;" onclick="kaydet()" class="btn btn-outline-primary button ">Sipariş Ver</button>
+        </form>
 
-    </div>
+
+      </div>
 
     </div>
 
@@ -211,7 +207,36 @@ include("vtayar.php");
 
 </body>
 
+<script type="text/javascript">
+  function kaydet() {
+var deger=$("#deger").serialize();
 
+    $.ajax({
+      url: "kaydet.php",
+      type: "POST",
+      data: deger,
+      success: function(data) {
+        if($.trim(data)=="bos"){
+          alert("Ad Soyad boş bırakılamaz!");
+
+        }
+        else if($.trim(data)=="bos1"){
+          alert("Telefon boş bırakılamaz!");
+        }
+        else if($.trim(data)=="bos2"){
+          alert("Mail boş bırakılamaz!");
+        }
+        else if($.trim(data)=="kayit"){
+          alert("Siparişiniz alındı.");
+        }
+        else if($.trim(data)=="hata"){
+          alert("Şisparişiniz alınamadı.Daha sonra tekrar deneyin!");
+        }
+
+      }
+    });
+  }
+</script>
 
 
 
@@ -286,7 +311,7 @@ include("vtayar.php");
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>

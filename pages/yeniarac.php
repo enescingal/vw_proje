@@ -15,7 +15,7 @@ include("vtayar.php");
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
   <link rel="stylesheet" href="../Public/css/anasayfa.css">
@@ -126,19 +126,19 @@ include("vtayar.php");
 
 
       <div class="col-12 card" style="padding: 16px 160px;">
-        <form method="POST" id="deger1" onsubmit="return false;">
+        <form method="POST" id="deger" onsubmit="return false;">
           <h4 class="text-center p-4">Hemen Şipariş Verin</h4>
           <div class="form-floating mb-3">
 
-            <input type="text" name="ad" required="" class="form-control " id="floatingInput" placeholder="text">
+            <input type="text" name="ad"  class="form-control " id="floatingInput" placeholder="text">
             <label for="floatingInput">Ad Soyad</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" name="tel" required="" class="form-control" id="floatingInput" placeholder="text">
+            <input type="text" name="tel"  class="form-control" id="floatingInput" placeholder="text">
             <label for="floatingInput">Telefon</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" name="mail" required="" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Mail</label>
           </div>
 
@@ -190,7 +190,7 @@ include("vtayar.php");
 
           </select>
          
-          <button type="submit" name="btn" style="margin-left:400px;" onclick="kaydet()" class="btn btn-outline-primary button ">Sipariş Ver</button>
+          <button type="submit" name="btn" style="margin-left:40%" onclick="kaydet()" class="btn btn-outline-primary button ">Sipariş Ver</button>
         </form>
 
 
@@ -217,20 +217,32 @@ var deger=$("#deger").serialize();
       data: deger,
       success: function(data) {
         if($.trim(data)=="bos"){
-          alert("Ad Soyad boş bırakılamaz!");
+          swal("Uyarı","Ad Soyad boş bırakılamaz!","warning")
 
         }
         else if($.trim(data)=="bos1"){
-          alert("Telefon boş bırakılamaz!");
+          swal("Uyarı","Telefon numarası boş bırakılamaz!","warning")
+         
         }
         else if($.trim(data)=="bos2"){
-          alert("Mail boş bırakılamaz!");
+          swal("Uyarı","Mail boş bırakılamaz!","warning")
+        }
+        else if($.trim(data)=="bos3"){
+          swal("Uyarı","Lütfen bir şehir seçiniz","warning")
+        }
+        else if($.trim(data)=="bos4"){
+          swal("Uyarı","Lütfen bir araç modeli seçiniz","warning")
+        }
+        else if($.trim(data)=="bos5"){
+          swal("Uyarı","Lütfen bir donanım seviyesi seçiniz","warning")
         }
         else if($.trim(data)=="kayit"){
-          alert("Siparişiniz alındı.");
+          swal("Başarılı" , "Sipariniz alındı!" , "success")
         }
         else if($.trim(data)=="hata"){
-          alert("Şisparişiniz alınamadı.Daha sonra tekrar deneyin!");
+          swal("Hata" , "Sipariniz alınamadı!" , "error")
+        
+         
         }
 
       }
@@ -312,6 +324,7 @@ var deger=$("#deger").serialize();
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>

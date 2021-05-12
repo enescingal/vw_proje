@@ -130,15 +130,15 @@ include("vtayar.php");
           <h4 class="text-center p-4">Hemen Şipariş Verin</h4>
           <div class="form-floating mb-3">
 
-            <input type="text" name="ad"  class="form-control " id="floatingInput" placeholder="text">
+            <input type="text" name="ad"  class="form-control " id="floatingInput" placeholder="text" autocomplete="off">
             <label for="floatingInput">Ad Soyad</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" name="tel"  class="form-control" id="floatingInput" placeholder="text">
+            <input type="text" name="tel"  class="form-control" id="floatingInput" placeholder="text" autocomplete="off">
             <label for="floatingInput">Telefon</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com" autocomplete="off">
             <label for="floatingInput">Mail</label>
           </div>
 

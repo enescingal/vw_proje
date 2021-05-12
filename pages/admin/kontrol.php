@@ -28,7 +28,7 @@ if ($_GET['iletisim'] == "sil") {
     'id' => $_GET['id']
   ));
   if ($kontrol) {
-    header("location:../admin/admin.php?success=1");
+    header("location:../admin/admin.php?info=1");
   }
   else{
     header("location:../admin/admin.php?danger=1");

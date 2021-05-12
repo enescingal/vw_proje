@@ -116,45 +116,45 @@ include("vtayar.php");
   <section>
 
     <!--main-->
-  
+
 
 
 
     <!-- --------------DAHA FAZLA--------  -->
     <div class="container col-12">
       <h4 class="text-center" style="margin:80px;"><strong>İletişim Formu</strong> </h4>
-      <form method="POST" id="deger1" onsubmit="return false;">
+      <form method="POST" id="deger1" onsubmit="return false;" >
         <div class="col-12 card" style="padding: 16px 160px;">
           <h4 class="text-center p-4">Bizimle İletişime Geçin</h4>
           <div class="form-floating mb-3">
-            <input type="text"  class="form-control" name="ad" id="floatingInput" placeholder="text">
+            <input type="text" class="form-control" name="ad" id="floatingInput" placeholder="text" autocomplete="off">
             <label for="floatingInput">Ad Soyad</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text"  class="form-control" name="tel" id="floatingInput" placeholder="text">
+            <input type="text" pattern="\d{11}" class="form-control" name="tel" id="floatingInput" placeholder="text" autocomplete="off">
             <label for="floatingPassword">Telefon</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" name="mail" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control" name="mail" id="floatingInput" placeholder="name@example.com" autocomplete="off">
             <label for="floatingInput">Mail</label>
           </div>
           <div class="form-floating">
-            <textarea class="form-control"   name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px;"></textarea>
+            <textarea class="form-control" name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px;"></textarea>
             <label for="floatingTextarea">Mesajınız</label>
           </div>
           <?php
-            if (isset($_GET['success'])) {
-            ?>
-              <div class="alert alert-success">Mesajınız Alındı.</div>
-            <?php } ?>
+          if (isset($_GET['success'])) {
+          ?>
+            <div class="alert alert-success">Mesajınız Alındı.</div>
+          <?php } ?>
           <button type="submit" name="btn1" onclick="kaydet()" class="btn btn-outline-primary button">Gönder</button>
-          
+
         </div>
       </form>
     </div>
-   
-    
-    
+
+
+
 
 
 
@@ -164,35 +164,31 @@ include("vtayar.php");
 </body>
 <script type="text/javascript">
   function kaydet() {
-var deger1=$("#deger1").serialize();
+    var deger1 = $("#deger1").serialize();
 
     $.ajax({
       url: "kaydet1.php",
       type: "POST",
       data: deger1,
       success: function(data) {
-        if($.trim(data)=="bos"){
-          swal("Uyarı","Ad Soyad boş bırakılamaz!","warning")
-        }
-        else if($.trim(data)=="bos1"){
-          swal("Uyarı","Telefon numarası boş bırakılamaz!","warning")
-        }
-        else if($.trim(data)=="bos2"){
-          swal("Uyarı","Mail boş bırakılamaz!","warning")
-        }
-        else if($.trim(data)=="bos3"){
-          swal("Uyarı","Mesaj boş bırakılamaz!","warning")
-        }
-        else if($.trim(data)=="kayit"){
-          swal("Başarılı" , "Mesajınız alındı!" , "success")
-        }
-        else if($.trim(data)=="hata"){
-          swal("Hata" , "Mesajınız alınamadı!" , "error")
+        if ($.trim(data) == "bos") {
+          swal("Uyarı", "Ad Soyad boş bırakılamaz!", "warning")
+        } else if ($.trim(data) == "bos1") {
+          swal("Uyarı", "Telefon numarası boş bırakılamaz!", "warning")
+        } else if ($.trim(data) == "bos2") {
+          swal("Uyarı", "Mail boş bırakılamaz!", "warning")
+        } else if ($.trim(data) == "bos3") {
+          swal("Uyarı", "Mesaj boş bırakılamaz!", "warning")
+        } else if ($.trim(data) == "kayit") {
+          swal("Başarılı", "Mesajınız alındı!", "success")
+        } else if ($.trim(data) == "hata") {
+          swal("Hata", "Mesajınız alınamadı!", "error")
         }
 
       }
     });
   }
+ 
 </script>
 
 

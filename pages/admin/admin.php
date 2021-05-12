@@ -61,27 +61,21 @@ include("guvenlik.php");
   <section>
     <div class="container" style="margin-top: 350px;">
       <div class="col-12">
-
-        <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
           <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                 Ön Siparişler
               </button>
             </h2>
-
-
-
-
-
-            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
               <div class="accordion-body">
-                <div class="row justify-content-center">
+              <div class="row justify-content-center">
                   <div class="col">
                     <?php
                     if (isset($_GET['success'])) {
                     ?>
-                      <div class="alert alert-success">Başarıyla Silindi.</div>
+                      <div class="alert alert-success">Başarıyla Silindi!</div>
                     <?php } ?>
                     <table class="table ">
                       <tr>
@@ -128,22 +122,20 @@ include("guvenlik.php");
               </div>
             </div>
           </div>
-
           <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                 Mesajlar
               </button>
             </h2>
-
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body"></div>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+              <div class="accordion-body">
               <div class="row justify-content-center">
                 <div class="col">
                   <?php
-                  if (isset($_GET['success'])) {
+                  if (isset($_GET['info'])) {
                   ?>
-                    <div class="alert alert-success">Başarıyla Silindi.</div>
+                    <div class="alert alert-info" role="alert">Başarıyla Silindi!</div>
                   <?php } ?>
                   <table class="table ">
                     <tr>
@@ -183,13 +175,12 @@ include("guvenlik.php");
                   </table>
                 </div>
               </div>
+              </div>
             </div>
-
           </div>
 
         </div>
       </div>
-    </div>
   </section>
 
 </body>

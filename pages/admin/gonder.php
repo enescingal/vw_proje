@@ -33,12 +33,15 @@ try {
     //Content
     $mail->isHTML(true); 
     $mail->CharSet = 'UTF-8';                                 //Set email format to HTML
-    $mail->Subject = $_POST['konu'];
+    $mail->Subject =$_POST['konu'] ; 
     $mail->Body    = $_POST['mesaj'];
    
 
     $mail->send();
-    header("location:mail.php?succes=1");
+    if($mail){
+        header("location:mail.php?success=1");
+    }
+    
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

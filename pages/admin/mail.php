@@ -29,11 +29,7 @@
         <h5 class="card-title ad1">Mail </h5>
         <p class="card-text"></p>
         <form action="gonder.php" method="POST">
-        <?php
-          if (isset($_GET['success'])) {
-          ?>
-            <div class="alert alert-success">Başarıyla Silindi.</div>
-          <?php } ?>
+       
           <div class="form-floating mb-3 ">
             <input type="text" name="kul" class="form-control" id="floatingInput" placeholder="text">
             <label for="floatingInput">Volkswagen</label>
@@ -48,23 +44,29 @@
           </div>
           <div class="form-floating mb-3">
             <input type="email" class="form-control " name="mail" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput"><?php echo $_GET['mail'] ?> </label>
+            <label  for="floatingInput"><?php echo $_GET['mail'] ?> </label>
           </div>
           <div class="form-floating">
-            <textarea class="form-control " name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px;">Talebiniz alınmıştır. İyi Günler dileriz.</textarea>
+            <textarea class="form-control " name="mesaj" placeholder="Leave a comment here" id="floatingTextarea" style="margin-bottom: 16px; height:80px;">Talebiniz alınmıştır. İyi Günler dileriz.</textarea>
             <label for="floatingTextarea">Mesajınız</label>
           </div>
-         
+          <?php
+          if (isset($_GET['success'])) {
+          ?>
+            <div class="alert alert-success" role="alert">Mail Gönderildi!</div>
+          <?php } ?>
           <button type="submit" name="gndr" class="btn  ab color1 button " value="Log in">Mail Gönder</button>
+         
 
         </form>
+        <button type="submit" style="margin-left:21%;" onclick="window.location='admin.php';" class="btn   color1 button " value="Log in">Çıkış</button>
       </div>
 
     </div>
 
   </section>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </html>
